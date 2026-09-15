@@ -163,9 +163,9 @@
                             EMAIL
                         </small>
 
-                        <a href="mailto:your@email.com">
-                            abbasalidhelawala267@email.com
-                        </a>
+                    <a href="mailto:abbasalidhelawala267@gmail.com">
+    abbasalidhelawala267@gmail.com
+</a>
 
                     </div>
 
@@ -266,10 +266,11 @@
                 </h2>
 
 
-                <form
-                    id="contactForm"
-                    onsubmit="submitContactForm(event)"
-                >
+            <form
+    id="contactForm"
+    action="https://formspree.io/f/mbgjnbwl"
+    method="POST"
+>
 
 
                     <!-- NAME -->
@@ -280,13 +281,13 @@
                             Your Name
                         </label>
 
-                        <input
-                            type="text"
-                            id="contactName"
-                            placeholder="Enter your name"
-                            required
-                        >
-
+                   <input 
+    type="text" 
+    id="contactName" 
+    name="name"
+    placeholder="Enter your name" 
+    required 
+>
                     </div>
 
 
@@ -299,12 +300,13 @@
                             Email Address
                         </label>
 
-                        <input
-                            type="email"
-                            id="contactEmail"
-                            placeholder="you@example.com"
-                            required
-                        >
+                     <input 
+    type="email" 
+    id="contactEmail" 
+    name="email"
+    placeholder="Enter your email" 
+    required 
+>
 
                     </div>
 
@@ -318,10 +320,11 @@
                             What do you need?
                         </label>
 
-                        <select
-                            id="contactService"
-                            required
-                        >
+                  <select
+    id="contactService"
+    name="service"
+    required
+>
 
                             <option value="">
                                 Select a service
@@ -377,12 +380,13 @@
                             Project Details
                         </label>
 
-                        <textarea
-                            id="contactMessage"
-                            rows="6"
-                            placeholder="Tell me a little about your project..."
-                            required
-                        ></textarea>
+                  <textarea
+    id="contactMessage"
+    name="message"
+    rows="6"
+    placeholder="Tell me a little about your project..."
+    required
+></textarea>
 
                     </div>
 
@@ -538,119 +542,45 @@
     </footer>
 
 
+<script>
+    document.getElementById("contactForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
 
-    <!-- =====================================================
-         CONTACT JAVASCRIPT
-         ===================================================== -->
+        var form = this;
+        var status = document.getElementById("contactMessageStatus");
+        var button = form.querySelector(".contact-submit");
 
-    <script>
+        button.disabled = true;
+        button.textContent = "Sending...";
 
-        function submitContactForm(event) {
+        try {
+            var response = await fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
 
-            event.preventDefault();
-
-
-            var name =
-                document.getElementById(
-                    "contactName"
-                ).value;
-
-
-            var email =
-                document.getElementById(
-                    "contactEmail"
-                ).value;
-
-
-            var service =
-                document.getElementById(
-                    "contactService"
-                ).value;
-
-
-            var message =
-                document.getElementById(
-                    "contactMessage"
-                ).value;
-
-
-            var status =
-                document.getElementById(
-                    "contactMessageStatus"
-                );
-
-
-            if (
-                !name ||
-                !email ||
-                !service ||
-                !message
-            ) {
-
-                status.textContent =
-                    "Please fill in all fields.";
-
-                return;
-
+            if (response.ok) {
+                status.textContent = "✓ Enquiry sent successfully! I'll get back to you soon.";
+                form.reset();
+                button.textContent = "Enquiry Sent ✓";
+            } else {
+                status.textContent = "Something went wrong. Please try again.";
+                button.textContent = "Send Enquiry →";
             }
 
-
-            status.textContent =
-                "Thank you! Your enquiry has been prepared.";
-
-
-            /*
-             * TEMPORARY BEHAVIOUR
-             *
-             * The form currently does not send an email.
-             * We will connect it to a free form service
-             * after the website is online.
-             */
-
-
-            var subject =
-                encodeURIComponent(
-                    "New Project Enquiry - " +
-                    service
-                );
-
-
-            var body =
-                encodeURIComponent(
-
-                    "Name: " +
-                    name +
-                    "\n\n" +
-
-                    "Email: " +
-                    email +
-                    "\n\n" +
-
-                    "Service: " +
-                    service +
-                    "\n\n" +
-
-                    "Project Details:\n" +
-                    message
-
-                );
-
-
-            /*
-             * Open email client
-             */
-
-            window.location.href =
-                "mailto:your@email.com" +
-                "?subject=" +
-                subject +
-                "&body=" +
-                body;
-
+        } catch (error) {
+            status.textContent = "Unable to send enquiry. Please try again.";
+            button.textContent = "Send Enquiry →";
         }
 
-    </script>
+        button.disabled = false;
+    });
+</script>
 
+   
 
 </body>
 
