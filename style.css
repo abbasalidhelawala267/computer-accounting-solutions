@@ -13302,3 +13302,37 @@ body {
     }
 
 }
+
+
+/* FINAL LOGO FIX */
+
+.hero .visual-circle {
+    width: 430px !important;
+    height: 430px !important;
+    border-radius: 50% !important;
+    background: #111111 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    overflow: hidden !important;
+}
+
+.hero .visual-circle img {
+    display: block !important;
+
+    width: 85% !important;
+    height: 85% !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 999 !important;
+}
