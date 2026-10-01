@@ -10648,19 +10648,36 @@ body {
 
 
 /* =========================================
-   FINAL CAS LOGO - BACKGROUND METHOD
+   FINAL CAS LOGO - CENTERED INSIDE CIRCLE
    ========================================= */
 
 .hero .visual-circle {
-    background-color: #111111 !important;
-    background-image: url("cas-logo.png") !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: contain !important;
+    position: relative !important;
+    width: 430px !important;
+    height: 430px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    background: #111111 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .hero .visual-circle img {
-    display: none !important;
+    display: block !important;
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    object-fit: contain !important;
+    object-position: center center !important;
+
+    z-index: 10 !important;
 }
 
 
