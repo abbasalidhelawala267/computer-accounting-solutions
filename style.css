@@ -13336,3 +13336,20 @@ body {
     position: relative !important;
     z-index: 999 !important;
 }
+
+
+/* PORTFOLIO LOGO - FACE FRONT */
+
+.portfolio .visual-circle img,
+.portfolio-hero .visual-circle img,
+.visual-circle img {
+    transform: rotate(0deg) !important;
+    rotate: 0deg !important;
+    transform-origin: center center !important;
+
+    object-fit: contain !important;
+    object-position: center center !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
