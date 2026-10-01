@@ -13353,3 +13353,26 @@ body {
     opacity: 1 !important;
     visibility: visible !important;
 }
+
+
+
+/* PORTFOLIO LOGO - FRONT FACING FIX */
+
+.portfolio-hero-mark {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: none !important;
+    perspective: none !important;
+}
+
+.portfolio-hero-mark img {
+    display: block !important;
+    transform: none !important;
+    transform-style: flat !important;
+    perspective: none !important;
+    rotate: 0deg !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    backface-visibility: visible !important;
+}
