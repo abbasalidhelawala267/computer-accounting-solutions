@@ -10653,7 +10653,7 @@ body {
 
 .hero .visual-circle {
     background-color: #111111 !important;
-    background-image: url("../images/cas-logo.png") !important;
+    background-image: url("cas-logo.png") !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     background-size: contain !important;
