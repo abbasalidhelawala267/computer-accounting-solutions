@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abbasalidhelawala267.github.io/computer-accounting-solutions/sitemap.xml
